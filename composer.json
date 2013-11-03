@@ -19,8 +19,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "mopa/bootstrap-bundle": "v3.0.0-beta2",
         "twbs/bootstrap": "v3.0.0",
-        "sensio/buzz-bundle": "dev-master",
-        "fabpot/goutte": "dev-master"
+        "sensio/buzz-bundle": "v1.0.0",
+        "fabpot/goutte": "v1.0.3"
     },
     "scripts": {
         "post-install-cmd": [

@@ -11,7 +11,7 @@ class FabexBetaSerieBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/Resources/config'));
+        $loader = new YamlFileLoader($container, new FileLocator($this->getPath().'/Resources/config'));
         $loader->load('config.yml');
     }
 }

@@ -15,7 +15,6 @@ class BetaSerie
     const key = 'a1020b4ecdb5';
     const api = 'http://api.betaseries.com/';
 
-    private $serie;
     private $memberLogin;
     private $memberToken;
     private $memberPlanning;
@@ -58,7 +57,7 @@ class BetaSerie
 
     public function memberDestroy()
     {
-        $response = $this->sendRequest('members/destroy');
+        $this->sendRequest('members/destroy');
     }
 
     public function memberAllLastEpisode()
@@ -94,26 +93,26 @@ class BetaSerie
 
     public function serieAdd($serie)
     {
-        $response = $this->sendRequest('shows/add/' . $serie);
+        $this->sendRequest('shows/add/' . $serie);
     }
 
     public function serieEpisode($serie, $season = null, $episode = null)
     {
-        //$parameters = array('season' => $season, 'episode' => $episode);
-        $response = $this->sendRequest('shows/episodes/' . $serie); //, $parameters);
+        $parameters = array('season' => $season, 'episode' => $episode);
+        $response = $this->sendRequest('shows/episodes/' . $serie, $parameters);
         return $response->root->seasons;
     }
 
     public function episodeWatched($serie, $season, $episode)
     {
         $parameters = array('season' => $season, 'episode' => $episode);
-        $response = $this->sendRequest('members/watched/' . $serie, $parameters);
+        $this->sendRequest('members/watched/' . $serie, $parameters);
     }
 
     public function episodeDownloaded($serie, $season, $episode)
     {
         $parameters = array('season' => $season, 'episode' => $episode);
-        $response = $this->sendRequest('members/downloaded/' . $serie, $parameters);
+        $this->sendRequest('members/downloaded/' . $serie, $parameters);
     }
 
     public function memberSeries($login)
