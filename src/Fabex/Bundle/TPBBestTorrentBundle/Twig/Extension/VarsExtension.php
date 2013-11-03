@@ -6,12 +6,6 @@ use \Twig_Extension;
 
 class VarsExtension extends Twig_Extension
 {
-    protected $container;
-
-    public function __construct(ContainerInterface $container)
-    {
-        $this->container = $container;
-    }
 
     public function getName()
     {
