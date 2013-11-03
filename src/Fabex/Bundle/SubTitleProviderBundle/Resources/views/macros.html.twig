@@ -1,0 +1,19 @@
+{% macro getSubTitle(serie, fullNameSerie, season, number, torrentId) %}
+    <script type="text/javascript">
+        $.ajax({
+            url: "{{ path('fabex_sub_title_provider_getSubTitle') }}",
+            type: "POST",
+            data : {
+                serie : '{{ serie }}',
+                fullNameSerie : '{{ fullNameSerie }}',
+                season :  '{{ season }}',
+                episode :  '{{ number }}'
+            },
+            success: function(data){
+                if (data != '') {
+                    $('#sub_{{ torrentId }}').append(data);
+                }
+            }
+        });
+    </script>
+{% endmacro %}

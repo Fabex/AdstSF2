@@ -1,0 +1,64 @@
+{% extends '::base.html.twig' %}
+{% from "@FabexTPBBestTorrent/macros.html.twig" import getBestTPBTorrent %}
+{% from "FabexSubTitleProviderBundle::macros.html.twig" import getSubTitle %}
+{% block body %}
+    <table class="table table-striped">
+        <tr>
+            <th>Série</th>
+            <th>Saison</th>
+            <th>Episode</th>
+            <th>Torrent</th>
+            <th>Sous Titre</th>
+            <th>Action</th>
+        </tr>
+        {% for episode in episodes %}
+            {% set torrentId = uniq_id('utp_') %}
+            <tr>
+                <td class="serie">
+                    <a>
+                        {{ episode.show }}
+                    </a>
+                </td>
+                <td>{{ episode.season }}</td>
+                <td>{{ episode.episode }}</td>
+                <td>
+                    <a id="{{ torrentId }}">{{ episode.show }} {{ episode.number }}</a>
+                    {% if not episode.downloaded %}
+                        {{ getBestTPBTorrent(episode.show, episode.number, torrentId) }}
+                        {% set downloaded = 'Téléchargé' %}
+                    {% else %}
+                        {% set downloaded = 'Pas téléchargé' %}
+                    {% endif %}
+                    <br/>
+                    <a onclick="upAsDownloaded('{{ episode.url }}', '{{ episode.season }}', '{{ episode.episode }}')">{{ downloaded }}</a>
+                </td>
+                <td id="sub_{{ torrentId }}">
+                    {{ getSubTitle(episode.url, episode.show, episode.season, episode.episode, torrentId) }}
+                </td>
+                <td class="{% if episode.downloaded %}action{% endif %}">
+                    <a id="{{ episode.show }}$${{ episode.season }}$${{ episode.number }}"
+                       href="{{ path('fabex_adst_watched', {'serie':episode.url,'season':episode.season,'episode':episode.episode}) }}">Vu</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        function upAsDownloaded(serie, season, episode) {
+            $.ajax({
+                url: "{{ path('fabex_adst_downloaded') }}",
+                type: "POST",
+                data: {
+                    'serie': serie,
+                    'season': season,
+                    'episode': episode
+                },
+                success: function (data) {
+
+                }
+            });
+            return true;
+        }
+    </script>
+{% endblock %}

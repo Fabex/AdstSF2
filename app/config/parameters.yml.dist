@@ -1,0 +1,8 @@
+parameters:
+    locale:            fr
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+
+fabex_beta_serie:
+    username: YourBetaSerieUserName
+    password: YourBetaSeriePassword
