@@ -1,7 +1,6 @@
 <?php
 namespace Fabex\Bundle\TPBBestTorrentBundle\Twig\Extension;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use \Twig_Extension;
 
 class VarsExtension extends Twig_Extension
