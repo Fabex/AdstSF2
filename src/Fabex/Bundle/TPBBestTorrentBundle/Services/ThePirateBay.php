@@ -27,7 +27,6 @@ class ThePirateBay
 
     private function my_file_get_contents($url)
     {
-//        exec('curl ' . $url, $output);
         $response = $this->buzz->get($url, array('User-Agent'=>'Firefox'));
         return $response->getContent();
     }
