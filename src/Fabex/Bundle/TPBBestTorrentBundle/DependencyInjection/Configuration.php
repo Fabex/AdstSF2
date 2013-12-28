@@ -18,7 +18,12 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('fabex_tpb_best_torrent');
+        $rootNode = $treeBuilder->root('fabex_tpb_best_torrent');
+
+
+        $rootNode->children()
+            ->scalarNode('uri')->isRequired()->end()
+            ->end();
 
         return $treeBuilder;
     }

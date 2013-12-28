@@ -18,11 +18,17 @@ class ThePirateBay
     private $buzz;
 
     /**
+     * @var string
+     */
+    private $uri;
+
+    /**
      * @param Browser $buzz
      */
-    public function __construct(Browser $buzz)
+    public function __construct(Browser $buzz, $uri)
     {
         $this->buzz = $buzz;
+        $this->uri = $uri;
     }
 
     private function my_file_get_contents($url)
@@ -45,7 +51,7 @@ class ThePirateBay
     private function getBetterTorrent($data)
     {
         $data = urlencode($data);
-        $url = 'http://thepiratebay.sx/search/' . $data . '/0/7/0';
+        $url = $this->uri.'/search/' . $data . '/0/7/0';
         $html = $this->my_file_get_contents($url);
         $pattern = "/href=\"(magnet\:.*)\" title/U";
         $matches = array();

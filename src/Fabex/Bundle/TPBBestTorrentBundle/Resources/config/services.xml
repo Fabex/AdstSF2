@@ -12,6 +12,7 @@
     <services>
         <service id="fabex_tpb_best_torrent.tpb" class="%fabex_tpb_best_torrent.tpb.class%">
             <argument type="service" id="buzz" />
+            <argument type="string">%fabex_tpb_best_torrent.uri%</argument>
         </service>
 
         <service id="fabex_tpb_best_torrent.twig.extension" class="Fabex\Bundle\TPBBestTorrentBundle\Twig\Extension\VarsExtension">
