@@ -6,6 +6,19 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "jquery/jquery",
+                "version": "1.10.2",
+                "dist": {
+                    "url": "http://code.jquery.com/jquery-1.10.2.js",
+                    "type": "file"
+                }
+            }
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.3.*",
@@ -22,7 +35,8 @@
         "fabpot/goutte": "v1.0.3",
         "braincrafted/bootstrap-bundle": "2.0.x-dev",
         "twitter/bootstrap": "3.0.*@dev",
-        "leafo/lessphp": "0.4.0"
+        "leafo/lessphp": "0.4.0",
+        "jquery/jquery":  "1.10.*"
     },
     "scripts": {
         "post-install-cmd": [
