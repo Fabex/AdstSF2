@@ -19,7 +19,10 @@
         "mopa/bootstrap-bundle": "v3.0.0-beta2",
         "twbs/bootstrap": "v3.0.0",
         "sensio/buzz-bundle": "v1.0.0",
-        "fabpot/goutte": "v1.0.3"
+        "fabpot/goutte": "v1.0.3",
+        "braincrafted/bootstrap-bundle": "2.0.x-dev",
+        "twitter/bootstrap": "3.0.*@dev",
+        "leafo/lessphp": "0.4.0"
     },
     "scripts": {
         "post-install-cmd": [
@@ -28,7 +31,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap"
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap",
+            "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -36,7 +40,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap"
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap",
+            "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
         ]
     },
     "config": {

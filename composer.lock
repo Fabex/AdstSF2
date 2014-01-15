@@ -3,8 +3,69 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "d9fcfc50c31664b3947678db5ecf7cf0",
+    "hash": "2f6ceb71ca7d6c740587e6c7a4876e82",
     "packages": [
+        {
+            "name": "braincrafted/bootstrap-bundle",
+            "version": "2.0.x-dev",
+            "target-dir": "Braincrafted/Bundle/BootstrapBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/braincrafted/bootstrap-bundle.git",
+                "reference": "ea12dae03f67cb718c66c50a5b59d523e8ba80a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/braincrafted/bootstrap-bundle/zipball/ea12dae03f67cb718c66c50a5b59d523e8ba80a9",
+                "reference": "ea12dae03f67cb718c66c50a5b59d523e8ba80a9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/console": "~2.3",
+                "symfony/finder": "~2.3",
+                "symfony/form": "~2.3",
+                "symfony/framework-bundle": "~2.3",
+                "symfony/twig-bundle": "~2.3"
+            },
+            "require-dev": {
+                "knplabs/knp-menu": "~2.0@alpha",
+                "knplabs/knp-menu-bundle": "~2.0@alpha",
+                "knplabs/knp-paginator-bundle": "dev-master",
+                "mockery/mockery": "0.8.*",
+                "phpunit/phpunit": "3.7.*",
+                "symfony/assetic-bundle": "~2.3"
+            },
+            "suggest": {
+                "knplabs/knp-menu": "Required to use KnpMenuBundle.",
+                "knplabs/knp-menu-bundle": "BraincraftedBootstrapBundle styles the menus provided by KnpMenuBundle.",
+                "knplabs/knp-paginator-bundle": "BraincraftedBootstrapBundle styles the pagination provided by KnpPaginatorBundle.",
+                "twbs/bootstrap": "Twitter Bootstrap provides the assets (images, CSS and JS)"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Braincrafted\\Bundle\\BootstrapBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Eckerstorfer",
+                    "email": "florian@eckerstorfer.co",
+                    "homepage": "http://florian.ec",
+                    "role": "Developer"
+                }
+            ],
+            "description": "BraincraftedBootstrapBundle integrates Bootstrap into Symfony2 by providing templates, Twig extensions, services and commands.",
+            "keywords": [
+                "bootstrap"
+            ],
+            "time": "2014-01-02 10:46:25"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.1.2",
@@ -1410,16 +1471,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.3.8",
+            "version": "v2.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "b0b421908d569e5024372ded65857707c409e0f7"
+                "reference": "ee1e0f2ef882ccd6a53ff91e5ffc39a22b6a6b74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/b0b421908d569e5024372ded65857707c409e0f7",
-                "reference": "b0b421908d569e5024372ded65857707c409e0f7",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/ee1e0f2ef882ccd6a53ff91e5ffc39a22b6a6b74",
+                "reference": "ee1e0f2ef882ccd6a53ff91e5ffc39a22b6a6b74",
                 "shasum": ""
             },
             "require": {
@@ -1514,7 +1575,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-12-16 14:36:05"
+            "time": "2014-01-05 01:24:54"
         },
         {
             "name": "twbs/bootstrap",
@@ -1648,6 +1709,48 @@
                 "templating"
             ],
             "time": "2013-12-06 07:47:10"
+        },
+        {
+            "name": "twitter/bootstrap",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "027af6deb4cd1783b4a6cfcc98ec3f64d585958a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/027af6deb4cd1783b4a6cfcc98ec3f64d585958a",
+                "reference": "027af6deb4cd1783b4a6cfcc98ec3f64d585958a",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.",
+            "homepage": "http://getbootstrap.com",
+            "keywords": [
+                "bootstrap",
+                "css"
+            ],
+            "time": "2014-01-14 14:03:35"
         }
     ],
     "packages-dev": [
@@ -1658,7 +1761,9 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "mopa/bootstrap-bundle": 10
+        "mopa/bootstrap-bundle": 10,
+        "braincrafted/bootstrap-bundle": 20,
+        "twitter/bootstrap": 20
     },
     "platform": {
         "php": ">=5.3.3"
