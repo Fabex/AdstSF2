@@ -38,7 +38,7 @@ assetic:
     assets:
         bootstrap_css:
             inputs:
-                - %kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/less/bootstrap.less
                 - %kernel.root_dir%/../vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/Resources/less/form.less
             filters:
                 - lessphp
@@ -70,6 +70,7 @@ assetic:
         #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
 
 braincrafted_bootstrap:
+    assets_dir: %kernel.root_dir%/../vendor/twitter/bootstrap
     auto_configure:
         twig: false
     less_filter: lessphp

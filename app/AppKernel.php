@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new Fabex\Bundle\BetaSerieBundle\FabexBetaSerieBundle(),
             new Fabex\Bundle\TPBBestTorrentBundle\FabexTPBBestTorrentBundle(),
             new Fabex\Bundle\SubTitleProviderBundle\FabexSubTitleProviderBundle(),
-            new \Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new Sensio\Bundle\BuzzBundle\SensioBuzzBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
         );
