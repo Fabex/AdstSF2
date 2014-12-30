@@ -4,11 +4,14 @@
         <meta charset="UTF-8" />
         <title>Automatic Download Series Torrent</title>
         <link rel="icon" type="image/jpg" href="{{ asset('favicon.jpg') }}" />
-        <link rel="stylesheet" href="{{ asset('bootstrap/dist/css/bootstrap.css') }}">
+        <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet" media="screen">
+        {#<link rel="stylesheet" href="{{ asset('bootstrap/dist/css/bootstrap.css') }}">#}
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
         {% block stylesheets %}{% endblock %}
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        {#<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>#}
+        <script src="{{ asset('/js/jquery.js') }}"></script>
+        <script src="{{ asset('/js/bootstrap.js') }}"></script>
+        {#<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>#}
     </head>
     <body>
 

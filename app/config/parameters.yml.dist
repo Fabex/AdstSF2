@@ -1,7 +1,7 @@
 parameters:
     locale:            fr
     secret:            ThisTokenIsNotSoSecretChangeIt
-
+    uri_torrent:
 
 fabex_beta_serie:
     key: YourBetaSerieAPIKey #this is mine 'a1020b4ecdb5'

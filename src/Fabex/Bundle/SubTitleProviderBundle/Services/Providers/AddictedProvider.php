@@ -25,8 +25,11 @@ class AddictedProvider extends SubTitleProviderAbstract
         $titles = array();
         $crawler->filter('.NewsTitle img[src="/images/folder_page.png"]')->each(function($e) use (&$titles){$titles[] = $e->parents()->text();});
         foreach ($subtitleLinks as $key => $subtitleLink) {
-            $this->addSubtitle($titles[$key], 'http://www.addic7ed.com'.$subtitleLink->getAttribute("href"));
+            if (isset($titles[$key])) {
+                $this->addSubtitle($titles[$key], 'http://www.addic7ed.com' . $subtitleLink->getAttribute("href"));
+            }
         }
+
         return $this->subtiles;
     }
 }
