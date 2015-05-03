@@ -62,10 +62,12 @@ class Addic7edSubtitleProvider implements SubtitleProviderInterface
                 }
             );
             foreach ($subtitleLinks as $key => $subtitleLink) {
-                $return[] = array(
-                    'name' => $titles[$key],
-                    'file' => 'http://www.addic7ed.com' . $subtitleLink->getAttribute("href")
-                );
+                if (array_key_exists($key, $titles)) {
+                    $return[] = array(
+                        'name' => $titles[$key],
+                        'file' => 'http://www.addic7ed.com' . $subtitleLink->getAttribute("href")
+                    );
+                }
             }
         } catch (\Exception $e) {
             return $return;
