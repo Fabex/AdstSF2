@@ -18,9 +18,10 @@ interface SubtitleProviderInterface
      * @param string $serie
      * @param string $season
      * @param string $episode
+     * @param string $fullNameSerie
      * @return array|mixed
      */
-    public function getSubtitle($serie, $season, $episode);
+    public function getSubtitle($serie, $season, $episode, $fullNameSerie);
 
     /**
      * @return string

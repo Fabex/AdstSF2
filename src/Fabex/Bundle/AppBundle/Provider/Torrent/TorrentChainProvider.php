@@ -43,6 +43,7 @@ class TorrentChainProvider implements TorrentProviderInterface
      */
     public function getBestTorrent($torrentName)
     {
+        $torrentName = urlencode(preg_replace("/\(\d+\) /", '', $torrentName));
         $bestTorrents = array();
         foreach ($this->providers as $provider) {
             /** @var TorrentProviderInterface $provider */

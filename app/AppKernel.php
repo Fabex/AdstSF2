@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new \Fabex\Bundle\BetaSerieSubtitleBundle\FabexBetaSerieSubtitleBundle(),
             new \Fabex\Bundle\ThePirateBayBundle\FabexThePirateBayBundle(),
             new \Fabex\Bundle\L337xBundle\FabexL337xBundle(),
+            new Fabex\Bundle\Addic7edSubtitleBundle\FabexAddic7edSubtitleBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

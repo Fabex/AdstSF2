@@ -45,7 +45,6 @@ class ThePirateBayProvider implements TorrentProviderInterface
      */
     public function getBestTorrent($torrentName)
     {
-        $torrentName = urlencode(preg_replace("/\(\d+\) /", '', $torrentName));
         $crawler = $this->client->request('GET', $this->url . '/' . $torrentName . '/0/7/0');
 
         $bestTorrent = array('magnet' => '', 'seeder' => 0);

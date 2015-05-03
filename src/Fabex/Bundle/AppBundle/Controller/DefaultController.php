@@ -41,11 +41,12 @@ class DefaultController extends Controller
      * @param string $serie
      * @param string $season
      * @param string $episode
+     * @param string $fullNameSerie
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function getSubtitleLinksAction($serie, $season, $episode)
+    public function getSubtitleLinksAction($serie, $season, $episode, $fullNameSerie)
     {
-        $subtitles = $this->get('fabex_app.provider.subtitle')->getSubtitle($serie, $season, $episode);
+        $subtitles = $this->get('fabex_app.provider.subtitle')->getSubtitle($serie, $season, $episode, $fullNameSerie);
 
         return $this->render(
             'FabexAppBundle:Default:getSubtitleLinks.html.twig',
