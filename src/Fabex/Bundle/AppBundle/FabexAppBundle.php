@@ -18,5 +18,6 @@ class FabexAppBundle extends Bundle
     {
         $container->addCompilerPass(new DependencyInjection\CompilerPass\ManagerSeriesProviderCompilerPass());
         $container->addCompilerPass(new DependencyInjection\CompilerPass\TorrentProviderCompilerPass());
+        $container->addCompilerPass(new DependencyInjection\CompilerPass\SubtitleProviderCompilerPass());
     }
 }

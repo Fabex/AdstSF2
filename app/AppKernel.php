@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Misd\GuzzleBundle\MisdGuzzleBundle(),
             new \Fabex\Bundle\BetaSerieApiBundle\FabexBetaSerieApiBundle(),
             new \Fabex\Bundle\BetaSerieManagerBundle\FabexBetaSerieManagerBundle(),
+            new \Fabex\Bundle\BetaSerieSubtitleBundle\FabexBetaSerieSubtitleBundle(),
             new \Fabex\Bundle\ThePirateBayBundle\FabexThePirateBayBundle(),
             new \Fabex\Bundle\L337xBundle\FabexL337xBundle(),
         );

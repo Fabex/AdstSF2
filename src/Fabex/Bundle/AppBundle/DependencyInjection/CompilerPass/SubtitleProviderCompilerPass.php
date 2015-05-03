@@ -13,10 +13,10 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
- * Class TorrentProviderCompilerPass
+ * Class SubtitleProviderCompilerPass
  * @package Fabex\Bundle\AppBundle\DependencyInjection\CompilerPass
  */
-class TorrentProviderCompilerPass implements CompilerPassInterface
+class SubtitleProviderCompilerPass implements CompilerPassInterface
 {
 
     /**
@@ -28,8 +28,8 @@ class TorrentProviderCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $taggedServices = $container->findTaggedServiceIds('adst.provider.torrent');
-        $definition = $container->getDefinition('fabex_app.provider.torrent');
+        $taggedServices = $container->findTaggedServiceIds('adst.provider.subtitle');
+        $definition = $container->getDefinition('fabex_app.provider.subtitle');
 
         foreach($taggedServices as $id => $service) {
             $definition->addMethodCall('addProvider', array(new Reference($id)));

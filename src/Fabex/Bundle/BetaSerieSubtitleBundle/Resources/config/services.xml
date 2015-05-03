@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+
+    <parameters>
+        <parameter key="fabex_beta_serie_subtitle.provider.class">Fabex\Bundle\BetaSerieSubtitleBundle\Provider\BetaSerieSubtitleProvider</parameter>
+    </parameters>
+
+    <services>
+        <service id="fabex_beta_serie_subtitle.provider" class="%fabex_beta_serie_subtitle.provider.class%">
+            <tag name="adst.provider.subtitle"/>
+            <argument type="service" id="fabex_beta_serie_api.betaserie"/>
+        </service>
+    </services>
+
+</container>

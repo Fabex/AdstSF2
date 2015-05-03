@@ -3,6 +3,7 @@
 namespace Fabex\Bundle\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * Class DefaultController
@@ -26,13 +27,29 @@ class DefaultController extends Controller
      * @param string $downloaded
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function getTorrentLinkAction($show, $number, $downloaded)
+    public function getTorrentLinksAction($show, $number, $downloaded)
     {
         $bestTorrent = $this->get('fabex_app.provider.torrent')->getBestTorrent($show . ' ' . $number);
 
         return $this->render(
-            'FabexAppBundle:Default:getTorrentLink.html.twig',
+            'FabexAppBundle:Default:getTorrentLinks.html.twig',
             array('show' => $show, 'number' => $number, 'downloaded' => $downloaded, 'bestTorrent' => $bestTorrent)
+        );
+    }
+
+    /**
+     * @param string $serie
+     * @param string $season
+     * @param string $episode
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function getSubtitleLinksAction($serie, $season, $episode)
+    {
+        $subtitles = $this->get('fabex_app.provider.subtitle')->getSubtitle($serie, $season, $episode);
+
+        return $this->render(
+            'FabexAppBundle:Default:getSubtitleLinks.html.twig',
+            array('subtitles' => $subtitles)
         );
     }
 }

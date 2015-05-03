@@ -225,9 +225,8 @@ class BetaSerie
     {
         $parameters = array('season' => $season, 'episode' => $episode, 'language' => 'vf');
         $response = $this->sendRequest('subtitles/show/' . $serie, $parameters);
-        die(dump($response));
 
-//        return $response->root->subtitles;
+        return $response['subtitles'];
     }
 
     /**

@@ -1,0 +1,8 @@
+{% for provider, subtitle in subtitles %}
+    <div>
+        <h4>{{ provider }}</h4>
+        {% for sub in subtitle %}
+            <a href="sub.file">{{ sub.name }}</a> <br/>
+        {% endfor %}
+    </div>
+{% endfor %}

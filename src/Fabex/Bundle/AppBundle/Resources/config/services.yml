@@ -4,3 +4,6 @@ services:
 
     fabex_app.provider.torrent:
         class: Fabex\Bundle\AppBundle\Provider\Torrent\TorrentChainProvider
+
+    fabex_app.provider.subtitle:
+        class: Fabex\Bundle\AppBundle\Provider\Subtitle\SubtitleChainProvider
