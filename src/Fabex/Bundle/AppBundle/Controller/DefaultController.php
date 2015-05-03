@@ -15,7 +15,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $episodes = $this->get('fabex_app.manager.serie')->memberLastEpisode();
+        $episodes = $this->get('fabex_app.manager.serie')->getLastEpisodes();
 
         return $this->render('FabexAppBundle:Default:index.html.twig', array('episodes' => $episodes));
     }

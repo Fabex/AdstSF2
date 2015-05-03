@@ -14,6 +14,14 @@ namespace Fabex\Bundle\AppBundle\Provider\Serie;
  */
 interface ManagerSerieInterface
 {
-    public function memberAuthentication($login, $password);
-    public function memberLastEpisode();
+    /**
+     * @param $login
+     * @param $password
+     */
+    public function authentication($login, $password);
+
+    /**
+     * @return array
+     */
+    public function getLastEpisodes();
 }

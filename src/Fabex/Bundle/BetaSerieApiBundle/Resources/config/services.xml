@@ -12,10 +12,6 @@
     <services>
         <service id="fabex_beta_serie_api.betaserie" class="%fabex_beta_serie_api.betaserie.class%">
             <argument type="service" id="guzzle.client" />
-            <call method="memberAuthentication">
-                <argument>%fabex_beta_serie_api.username%</argument>
-                <argument>%fabex_beta_serie_api.password%</argument>
-            </call>
         </service>
     </services>
 

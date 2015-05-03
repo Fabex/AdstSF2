@@ -5,8 +5,13 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="fabex_beta_serie.provider.serie.betaserie" parent="fabex_beta_serie_api.betaserie">
+        <service id="fabex_beta_serie.provider.serie.betaserie" class="Fabex\Bundle\BetaSerieManagerBundle\Manager\BetaSerieManager">
             <tag name="adst.manager.series"/>
+            <argument type="service" id="fabex_beta_serie_api.betaserie"/>
+            <call method="authentication">
+                <argument>%fabex_beta_serie_api.username%</argument>
+                <argument>%fabex_beta_serie_api.password%</argument>
+            </call>
         </service>
     </services>
 

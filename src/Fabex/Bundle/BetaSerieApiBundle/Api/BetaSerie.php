@@ -8,15 +8,13 @@
 
 namespace Fabex\Bundle\BetaSerieApiBundle\Api;
 
-use Fabex\Bundle\AppBundle\Provider\Serie\ManagerSerieInterface;
 use Guzzle\Http\Client;
-use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * Class BetaSerie
  * @package Fabex\Bundle\BetaSerieApiBundle\Api
  */
-class BetaSerie implements ManagerSerieInterface
+class BetaSerie
 {
     const VERSION = '2.4';
 
