@@ -47,22 +47,28 @@ class Addic7edSubtitleProvider implements SubtitleProviderInterface
      */
     public function getSubtitle($serie, $season, $episode, $fullNameSerie)
     {
-        $fullNameSerie = urlencode(preg_replace("/\(\d+\) /", '', $fullNameSerie));
-        $url = 'http://www.addic7ed.com/serie/' . $fullNameSerie . '/' . urlencode($season) . '/' . urlencode($episode ) . '/8';
-        $crawler = $this->client->request('GET', $url);
-        $subtitleLinks = $crawler->filter('.buttonDownload');
-        $titles = array();
-        $return = array();
-        $crawler->filter('.NewsTitle img[src$="/images/folder_page.png"]')->each(
-            function ($e) use (&$titles) {
-                $titles[] = $e->parents()->text();
-            }
-        );
-        foreach ($subtitleLinks as $key => $subtitleLink) {
-            $return[] = array(
-                'name' => $titles[$key],
-                'file' => 'http://www.addic7ed.com' . $subtitleLink->getAttribute("href")
+        try {
+            $fullNameSerie = urlencode(preg_replace("/\(\d+\) /", '', $fullNameSerie));
+            $url = 'http://www.addic7ed.com/serie/' . $fullNameSerie . '/' . urlencode($season) . '/' . urlencode(
+                    $episode
+                ) . '/8';
+            $crawler = $this->client->request('GET', $url);
+            $subtitleLinks = $crawler->filter('.buttonDownload');
+            $titles = array();
+            $return = array();
+            $crawler->filter('.NewsTitle img[src$="/images/folder_page.png"]')->each(
+                function ($e) use (&$titles) {
+                    $titles[] = $e->parents()->text();
+                }
             );
+            foreach ($subtitleLinks as $key => $subtitleLink) {
+                $return[] = array(
+                    'name' => $titles[$key],
+                    'file' => 'http://www.addic7ed.com' . $subtitleLink->getAttribute("href")
+                );
+            }
+        } catch (\Exception $e) {
+            return $return;
         }
 
         return $return;

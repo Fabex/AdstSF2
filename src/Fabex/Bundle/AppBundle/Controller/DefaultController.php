@@ -3,7 +3,6 @@
 namespace Fabex\Bundle\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * Class DefaultController
