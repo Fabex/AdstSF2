@@ -1,17 +1,4 @@
-fabex_sub_title_provider:
-    resource: "@FabexSubTitleProviderBundle/Resources/config/routing.xml"
-    prefix:   /sub
-
-fabex_tpb_best_torrent:
-    resource: "@FabexTPBBestTorrentBundle/Resources/config/routing.xml"
-    prefix:   /tpb
-
-fabex_beta_serie:
-    resource: "@FabexBetaSerieBundle/Resources/config/routing.xml"
+fabex_app:
+    resource: "@FabexAppBundle/Resources/config/routing.yml"
     prefix:   /
-
-fabex_adst:
-    resource: "@FabexAdstBundle/Resources/config/routing.xml"
-    prefix:   /
-
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+
+    <parameters>
+        <parameter key="fabex_the_pirate_bay.provider.class">Fabex\Bundle\ThePirateBayBundle\Provider\ThePirateBayProvider</parameter>
+    </parameters>
+
+    <services>
+        <service id="guzzle.http" class="GuzzleHttp\Client"/>
+
+        <service id="goutte.client" class="Goutte\Client">
+            <call method="setClient">
+                <argument type="service" id="guzzle.http"/>
+            </call>
+        </service>
+
+        <service id="fabex_the_pirate_bay.provider" class="%fabex_the_pirate_bay.provider.class%">
+            <tag name="adst.provider.torrent"/>
+            <argument type="service" id="goutte.client" />
+            <argument type="string">https://tpbproxy.co/search</argument>
+        </service>
+    </services>
+
+</container>

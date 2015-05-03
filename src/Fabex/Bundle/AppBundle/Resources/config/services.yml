@@ -1,0 +1,6 @@
+services:
+    fabex_app.manager.serie:
+        class: null
+
+    fabex_app.provider.torrent:
+        class: Fabex\Bundle\AppBundle\Provider\Torrent\TorrentChainProvider

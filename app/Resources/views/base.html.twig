@@ -1,47 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Automatic Download Series Torrent</title>
-        <link rel="icon" type="image/jpg" href="{{ asset('favicon.jpg') }}" />
-        <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet" media="screen">
-        {#<link rel="stylesheet" href="{{ asset('bootstrap/dist/css/bootstrap.css') }}">#}
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-        {% block stylesheets %}{% endblock %}
-        {#<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>#}
-        <script src="{{ asset('/js/jquery.js') }}"></script>
-        <script src="{{ asset('/js/bootstrap.js') }}"></script>
-        {#<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>#}
-    </head>
-    <body>
+<head>
+    <title>ADST SF2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" media="screen">
+    <script src="{{ asset('js/app_header.js') }}"></script>
+</head>
 
-        <nav class="navbar navbar-inverse" role="navigation">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Automatic Download Series Torrent</a>
-            </div>
-            <div class="collapse navbar-collapse" id="">
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input type="text" id="suggestSerieBS" class="form-control suggest" placeholder="Beta Series Search" />
-                    </div>
-                        <input type="hidden" name="serie" id="serieBS" />
-                        <input type="hidden" name="action" value="add"/>
-                        <input type="submit" class="btn btn-primary" value="Add series" />
-                </form>
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input type="text" id="suggestSerieTPB" class="form-control search-query suggest" placeholder="The Pirate Bay download" />
-                    </div>
-                </form>
-            </div>
-        </nav>
-
-        <div style="margin-bottom:5px; text-align: center;">
-            <a href="?mode=last" class="btn btn-success">Last episodes</a>
-            <a href="?mode=all" class="btn btn-success">All episodes</a>
-            <a href="/listSerie.php" class="btn btn-default">My series</a>
-        </div>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<body>
+{% include ':default:navbar.html.twig' %}
+<div class="container-fluid">
+    <div class="row">
+        {% block body %}
+        {% endblock %}
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
+<script src="{{ asset('js/jquery.js') }}"></script>
+<!-- Include all JavaScripts, compiled by Assetic -->
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+</body>
 </html>

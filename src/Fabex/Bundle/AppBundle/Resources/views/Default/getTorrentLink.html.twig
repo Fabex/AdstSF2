@@ -1,0 +1,12 @@
+{% if not downloaded %}
+    {% for provider, torrent in bestTorrent %}
+        <h4>{{ provider }}</h4>
+        <a href="{{ torrent.magnet }}">{{ show }} {{ number }}</a> ({{ torrent.seeder }})
+    {% endfor %}
+    {% set downloaded = 'Downloaded' %}
+{% else %}
+    {{ show }} {{ number }}
+    {% set downloaded = 'Not Downloaded' %}
+{% endif %}
+<br/>
+<a>{{ downloaded }}</a>

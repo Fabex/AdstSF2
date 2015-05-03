@@ -9,20 +9,28 @@ framework:
 
 web_profiler:
     toolbar: true
-    intercept_redirects: true
+    intercept_redirects: false
 
 monolog:
     handlers:
         main:
-            type:  stream
-            path:  %kernel.logs_dir%/%kernel.environment%.log
-            level: debug
-        firephp:
-            type:  firephp
-            level: info
-        chromephp:
-            type:  chromephp
-            level: info
+            type:   stream
+            path:   "%kernel.logs_dir%/%kernel.environment%.log"
+            level:  debug
+        console:
+            type:   console
+            bubble: false
+            verbosity_levels:
+                VERBOSITY_VERBOSE: INFO
+                VERBOSITY_VERY_VERBOSE: DEBUG
+            channels: ["!doctrine"]
+        console_very_verbose:
+            type:   console
+            bubble: false
+            verbosity_levels:
+                VERBOSITY_VERBOSE: NOTICE
+                VERBOSITY_VERY_VERBOSE: NOTICE
+                VERBOSITY_DEBUG: DEBUG
 
 assetic:
     use_controller: true

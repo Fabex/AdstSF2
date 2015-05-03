@@ -1,0 +1,3 @@
+fabex_app_homepage:
+    path:     /
+    defaults: { _controller: FabexAppBundle:Default:index }
