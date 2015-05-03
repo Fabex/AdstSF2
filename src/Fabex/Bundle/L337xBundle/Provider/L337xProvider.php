@@ -54,7 +54,7 @@ class L337xProvider implements TorrentProviderInterface
         $firstLi = $crawler->filter('.main-content > .search-result')->last()->filter('ul > li')->first();
         if ($firstLi->count()) {
             $firstLi->children()->each(
-                function ($div, $index) use (&$bestTorrent) {
+                function (Crawler $div, $index) use (&$bestTorrent) {
                     /** @var Crawler $div */
                     switch ($index) {
                         case 0 :

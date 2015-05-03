@@ -52,7 +52,7 @@ class ThePirateBayProvider implements TorrentProviderInterface
         $firstTr = $crawler->filter('#searchResult > tr')->first();
         if ($firstTr->count()) {
             $firstTr->children()->each(
-                function ($td, $index) use (&$bestTorrent) {
+                function (Crawler $td, $index) use (&$bestTorrent) {
                     /** @var Crawler $td */
                     switch ($index) {
                         case 1 :
