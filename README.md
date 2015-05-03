@@ -1,4 +1,4 @@
 adstSF2
 =======
 
-A Symfony project created on May 1, 2015, 11:14 pm.
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/e51ac416-98f2-44b0-b191-b75cca7a0b2b/small.png)](https://insight.sensiolabs.com/projects/e51ac416-98f2-44b0-b191-b75cca7a0b2b)
