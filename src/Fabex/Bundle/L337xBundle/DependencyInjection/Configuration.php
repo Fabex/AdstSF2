@@ -18,8 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('fabex_l337x');
-
+        $treeBuilder->root('fabex_l337x');
 
         return $treeBuilder;
     }

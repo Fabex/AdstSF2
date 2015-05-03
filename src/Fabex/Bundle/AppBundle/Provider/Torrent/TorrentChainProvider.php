@@ -9,7 +9,6 @@
 namespace Fabex\Bundle\AppBundle\Provider\Torrent;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * Class TorrentChainProvider

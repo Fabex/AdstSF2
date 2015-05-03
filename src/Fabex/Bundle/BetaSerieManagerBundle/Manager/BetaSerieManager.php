@@ -32,8 +32,8 @@ class BetaSerieManager implements ManagerSerieInterface
     }
 
     /**
-     * @param $login
-     * @param $password
+     * @param string $login
+     * @param string $password
      */
     public function authentication($login, $password)
     {

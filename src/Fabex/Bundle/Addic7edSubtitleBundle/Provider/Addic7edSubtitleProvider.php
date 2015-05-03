@@ -9,8 +9,8 @@
 namespace Fabex\Bundle\Addic7edSubtitleBundle\Provider;
 
 use Fabex\Bundle\AppBundle\Provider\Subtitle\SubtitleProviderInterface;
-use Fabex\Bundle\BetaSerieApiBundle\Api\BetaSerie;
 use Goutte\Client;
+use Symfony\Component\DomCrawler\Crawler;
 
 /**
  * Class Addic7edSubtitleProvider
@@ -47,6 +47,7 @@ class Addic7edSubtitleProvider implements SubtitleProviderInterface
      */
     public function getSubtitle($serie, $season, $episode, $fullNameSerie)
     {
+        $return = array();
         try {
             $fullNameSerie = urlencode(preg_replace("/\(\d+\) /", '', $fullNameSerie));
             $url = 'http://www.addic7ed.com/serie/' . $fullNameSerie . '/' . urlencode($season) . '/' . urlencode(
@@ -55,9 +56,8 @@ class Addic7edSubtitleProvider implements SubtitleProviderInterface
             $crawler = $this->client->request('GET', $url);
             $subtitleLinks = $crawler->filter('.buttonDownload');
             $titles = array();
-            $return = array();
             $crawler->filter('.NewsTitle img[src$="/images/folder_page.png"]')->each(
-                function ($e) use (&$titles) {
+                function (Crawler $e) use (&$titles) {
                     $titles[] = $e->parents()->text();
                 }
             );

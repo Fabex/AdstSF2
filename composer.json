@@ -1,6 +1,9 @@
 {
     "name": "fabex/adst-sf2",
-    "license": "proprietary",
+    "description": "Project to manage your series",
+    "keywords": ["series", "series management"],
+    "homepage": "https://github.com/Fabex/AdstSF2",
+    "license": "MIT",
     "type": "project",
     "autoload": {
         "psr-0": {

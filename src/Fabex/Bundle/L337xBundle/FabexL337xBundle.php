@@ -17,4 +17,4 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 class FabexL337xBundle extends Bundle
 {
 
-} 
+}

@@ -84,13 +84,12 @@ class BetaSerie
     {
         $parameters = array('view' => 'unseen');
         $response = $this->sendRequest('planning/member/' . $this->memberLogin, $parameters);
-        die(dump($response));
-//        $this->memberPlanning = $response->root->planning;
+        $this->memberPlanning = $response['planning'];
     }
 
     /**
-     * @param $login
-     * @param $password
+     * @param string $login
+     * @param string $password
      */
     public function memberAuthentication($login, $password)
     {
@@ -100,23 +99,16 @@ class BetaSerie
         $this->memberToken = $response['member']['token'];
     }
 
-    /**
-     *
-     */
     public function memberDestroy()
     {
         $this->sendRequest('members/destroy');
     }
 
-    /**
-     *
-     */
     public function memberAllLastEpisode()
     {
         $parameters = array('view' => 'show');
         $response = $this->sendRequest('members/episodes/all', $parameters);
-        die(dump($response));
-//        $this->memberLastEpisode = $response->root->episodes;
+        $this->memberLastEpisode = $response['episodes'];
     }
 
     /**
@@ -135,32 +127,30 @@ class BetaSerie
     }
 
     /**
-     * @param $serie
+     * @param string $serie
      * @return mixed
      */
     public function serieSearch($serie)
     {
         $parameters = array('title' => $serie);
         $response = $this->sendRequest('shows/search', $parameters);
-        die(dump($response));
 
-//        return $response->root->shows;
+        return $response['shows'];
     }
 
     /**
-     * @param $serie
+     * @param string $serie
      * @return mixed
      */
     public function serieDisplay($serie)
     {
         $response = $this->sendRequest('shows/display/' . $serie);
-        die(dump($response));
 
-//        return $response->root;
+        return $response;
     }
 
     /**
-     * @param $serie
+     * @param string $serie
      */
     public function serieAdd($serie)
     {
@@ -168,24 +158,23 @@ class BetaSerie
     }
 
     /**
-     * @param $serie
-     * @param null $season
-     * @param null $episode
+     * @param string $serie
+     * @param string $season
+     * @param string $episode
      * @return mixed
      */
     public function serieEpisode($serie, $season = null, $episode = null)
     {
         $parameters = array('season' => $season, 'episode' => $episode);
         $response = $this->sendRequest('shows/episodes/' . $serie, $parameters);
-        die(dump($response));
 
-//        return $response->root->seasons;
+        return $response['seasons'];
     }
 
     /**
-     * @param $serie
-     * @param $season
-     * @param $episode
+     * @param string $serie
+     * @param string $season
+     * @param string $episode
      */
     public function episodeWatched($serie, $season, $episode)
     {
@@ -194,9 +183,9 @@ class BetaSerie
     }
 
     /**
-     * @param $serie
-     * @param $season
-     * @param $episode
+     * @param string $serie
+     * @param string $season
+     * @param string $episode
      */
     public function episodeDownloaded($serie, $season, $episode)
     {
@@ -205,8 +194,8 @@ class BetaSerie
     }
 
     /**
-     * @param $login
-     * @return \Buzz\Message\MessageInterface
+     * @param string $login
+     * @return mixed
      */
     public function memberSeries($login)
     {
@@ -230,7 +219,7 @@ class BetaSerie
     }
 
     /**
-     * @param $action
+     * @param string $action
      * @param array $parameters
      * @return mixed
      */
