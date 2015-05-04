@@ -45,10 +45,8 @@ class ThePirateBayProvider implements TorrentProviderInterface
      */
     public function getBestTorrent($torrentName)
     {
-        $crawler = $this->client->request('GET', $this->url . '/' . $torrentName . '/0/7/0');
-
         $bestTorrent = array('magnet' => '', 'seeder' => 0);
-
+        $crawler = $this->client->request('GET', $this->url . '/' . $torrentName . '/0/7/0');
         $firstTr = $crawler->filter('#searchResult > tr')->first();
         if ($firstTr->count()) {
             $firstTr->children()->each(

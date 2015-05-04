@@ -46,11 +46,8 @@ class L337xProvider implements TorrentProviderInterface
      */
     public function getBestTorrent($torrentName)
     {
-        $torrentName = urlencode(preg_replace("/\(\d+\) /", '', $torrentName));
-        $crawler = $this->client->request('GET', $this->url . '/' . $torrentName . '/seeders/desc/1/');
-
         $bestTorrent = array('magnet' => '', 'seeder' => 0);
-
+        $crawler = $this->client->request('GET', $this->url . '/' . $torrentName . '/seeders/desc/1/');
         $firstLi = $crawler->filter('.main-content > .search-result')->last()->filter('ul > li')->first();
         if ($firstLi->count()) {
             $firstLi->children()->each(
