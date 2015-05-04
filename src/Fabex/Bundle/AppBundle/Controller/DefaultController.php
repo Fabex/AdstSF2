@@ -3,6 +3,7 @@
 namespace Fabex\Bundle\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class DefaultController
@@ -24,15 +25,26 @@ class DefaultController extends Controller
      * @param string $show
      * @param string $number
      * @param string $downloaded
+     * @param string $season
+     * @param string $episode
+     * @param string $url
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function getTorrentLinksAction($show, $number, $downloaded)
+    public function getTorrentLinksAction($show, $number, $downloaded, $season, $episode, $url)
     {
         $bestTorrent = $this->get('fabex_app.provider.torrent')->getBestTorrent($show . ' ' . $number);
 
         return $this->render(
             'FabexAppBundle:Default:getTorrentLinks.html.twig',
-            array('show' => $show, 'number' => $number, 'downloaded' => $downloaded, 'bestTorrent' => $bestTorrent)
+            array(
+                'show' => $show,
+                'number' => $number,
+                'downloaded' => $downloaded,
+                'bestTorrent' => $bestTorrent,
+                'season' => $season,
+                'episode' => $episode,
+                'url' => $url,
+            )
         );
     }
 
@@ -51,5 +63,18 @@ class DefaultController extends Controller
             'FabexAppBundle:Default:getSubtitleLinks.html.twig',
             array('subtitles' => $subtitles)
         );
+    }
+
+    /**
+     * @param string $serie
+     * @param string $season
+     * @param string $episode
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function toggleDownloadedEpisodeAction($serie, $season, $episode)
+    {
+        $this->get('fabex_app.manager.serie')->toggleDownloadedEpisode($serie, $season, $episode);
+
+        return new JsonResponse('ok');
     }
 }

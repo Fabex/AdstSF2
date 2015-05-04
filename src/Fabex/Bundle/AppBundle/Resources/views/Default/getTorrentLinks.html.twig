@@ -1,12 +1,11 @@
+{% for provider, torrent in bestTorrent %}
+    <h4>{{ provider }}</h4>
+    <a href="{{ torrent.magnet }}">{{ show }} {{ number }}</a> ({{ torrent.seeder }})
+{% endfor %}
 {% if not downloaded %}
-    {% for provider, torrent in bestTorrent %}
-        <h4>{{ provider }}</h4>
-        <a href="{{ torrent.magnet }}">{{ show }} {{ number }}</a> ({{ torrent.seeder }})
-    {% endfor %}
-    {% set downloaded = 'Downloaded' %}
+    {% set downloadedTxt = 'Downloaded' %}
 {% else %}
-    {{ show }} {{ number }}
-    {% set downloaded = 'Not Downloaded' %}
+    {% set downloadedTxt = 'Not Downloaded' %}
 {% endif %}
 <br/>
-<a>{{ downloaded }}</a>
+<a class="toggleDownloaded" data-downloaded="{{ downloaded }}" data-serie="{{ url }}" data-season="{{ season }}" data-episode="{{ episode }}">{{ downloadedTxt }}</a>

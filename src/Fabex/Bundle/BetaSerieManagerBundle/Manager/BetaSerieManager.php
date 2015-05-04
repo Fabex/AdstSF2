@@ -44,4 +44,15 @@ class BetaSerieManager implements ManagerSerieInterface
     {
         return $this->api->memberLastEpisode();
     }
+
+    /**
+     * @param string $serie
+     * @param string $season
+     * @param string $episode
+     * @return mixed
+     */
+    public function toggleDownloadedEpisode($serie, $season, $episode)
+    {
+        $this->api->episodeDownloaded($serie, $season, $episode);
+    }
 }

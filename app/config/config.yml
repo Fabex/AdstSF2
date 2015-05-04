@@ -62,7 +62,13 @@ assetic:
         app_header_js:
             inputs:
                 - %kernel.root_dir%/../web/bundles/fabexapp/js/hinclude.js
+                - %kernel.root_dir%/../web/bundles/fosjsrouting/js/router.js
+                - %kernel.root_dir%/../web/js/fos_js_routes.js
             output: js/app_header.js
+        app_footer_js:
+            inputs:
+                - %kernel.root_dir%/../web/bundles/fabexapp/js/app.js
+            output: js/app_footer.js
         bootstrap_js:
             inputs:
                 - %kernel.root_dir%/../vendor/twbs/bootstrap/js/transition.js

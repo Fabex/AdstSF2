@@ -1,6 +1,13 @@
 fabex_app_homepage:
-    path:     /
+    path: /
     defaults: { _controller: FabexAppBundle:Default:index }
     requirements:
         _method:  GET
 
+fabex_app_toggle_downloaded_episode:
+    path: toggle-downloaded-episode/{serie}/{season}/{episode}
+    defaults: {_controller: FabexAppBundle:Default:toggleDownloadedEpisode }
+    requirements:
+        _method: GET
+    options:
+        expose: true

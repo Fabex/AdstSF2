@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <div class="col-md-12">
-        <table class="table table-striped table-hover">
+        <table class="table">
             <thead>
             <tr>
                 <th>Serie</th>
@@ -14,12 +14,12 @@
             </thead>
             <tbody>
             {% for episode in episodes %}
-                <tr>
+                <tr class="{% if episode.downloaded %}bg-success{% else %}bg-danger{% endif %}">
                     <td><h4>{{ episode.show }}</h4> {{ episode.title }}</td>
                     <td>{{ episode.season }}</td>
                     <td>{{ episode.episode }}</td>
-                    <td>{{ render_hinclude(controller('FabexAppBundle:Default:getTorrentLinks', {'show': episode.show, 'number': episode.number, 'downloaded': episode.downloaded})) }}</td>
-                    <td>{{ render_hinclude(controller('FabexAppBundle:Default:getSubtitleLinks', {'serie': episode.url, 'season': episode.season , 'episode': episode.episode, 'fullNameSerie': episode.show })) }}</td>
+                    <td>{{ render_hinclude(controller('FabexAppBundle:Default:getTorrentLinks', {'show': episode.show, 'number': episode.number, 'downloaded': episode.downloaded, 'season': episode.season, 'episode': episode.episode, 'url': episode.url})) }}</td>
+                    <td>{{ render_hinclude(controller('FabexAppBundle:Default:getSubtitleLinks', {'serie': episode.url, 'season': episode.season, 'episode': episode.episode, 'fullNameSerie': episode.show})) }}</td>
                     <td></td>
                 </tr>
             {% endfor %}

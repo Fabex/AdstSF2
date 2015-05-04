@@ -24,4 +24,12 @@ interface ManagerSerieInterface
      * @return array
      */
     public function getLastEpisodes();
+
+    /**
+     * @param string $serie
+     * @param string $season
+     * @param string $episode
+     * @return mixed
+     */
+    public function toggleDownloadedEpisode($serie, $season, $episode);
 }
