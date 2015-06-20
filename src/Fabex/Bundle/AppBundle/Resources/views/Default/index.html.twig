@@ -20,7 +20,9 @@
                     <td>{{ episode.episode }}</td>
                     <td>{{ render_hinclude(controller('FabexAppBundle:Default:getTorrentLinks', {'show': episode.show, 'number': episode.number, 'downloaded': episode.downloaded, 'season': episode.season, 'episode': episode.episode, 'url': episode.url})) }}</td>
                     <td>{{ render_hinclude(controller('FabexAppBundle:Default:getSubtitleLinks', {'serie': episode.url, 'season': episode.season, 'episode': episode.episode, 'fullNameSerie': episode.show})) }}</td>
-                    <td></td>
+                    <td>
+                        <a href="{{ path('fabex_app_watched_episode', {'serie': episode.url, 'season': episode.season, 'episode': episode.episode}) }}">Watched</a>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>

@@ -4,9 +4,29 @@ fabex_app_homepage:
     requirements:
         _method:  GET
 
+fabex_app_all_episodes:
+    path: /all
+    defaults: { _controller: FabexAppBundle:Default:getAllEpisodes }
+    requirements:
+        _method:  GET
+
+fabex_app_watched_episode:
+    path: watched-episode/{serie}/{season}/{episode}
+    defaults: { _controller: FabexAppBundle:Default:watchedEpisode }
+    requirements:
+        _method:  GET
+
 fabex_app_toggle_downloaded_episode:
     path: toggle-downloaded-episode/{serie}/{season}/{episode}
     defaults: {_controller: FabexAppBundle:Default:toggleDownloadedEpisode }
+    requirements:
+        _method: GET
+    options:
+        expose: true
+
+fabex_app_subtitle_link:
+    path: subtitle-link
+    defaults: {_controller: FabexAppBundle:Default:subtitleLink }
     requirements:
         _method: GET
     options:

@@ -1,0 +1,23 @@
+Fabex\Bundle\AppBundle\Entity\Torrent:
+    type: entity
+    table: torrent
+    id:
+        id:
+            type: integer
+            nullable: true
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+        slug:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+    lifecycleCallbacks: {  }

@@ -40,19 +40,41 @@ class BetaSerieManager implements ManagerSerieInterface
         $this->api->memberAuthentication($login, $password);
     }
 
+    /**
+     * @return array
+     */
     public function getLastEpisodes()
     {
         return $this->api->memberLastEpisode();
     }
 
     /**
+     * @return array
+     */
+    public function getAllLastEpisodes()
+    {
+       return $this->api->memberAllLastEpisode();
+    }
+
+    /**
      * @param string $serie
      * @param string $season
      * @param string $episode
-     * @return mixed
+     * @return mixed|void
      */
     public function toggleDownloadedEpisode($serie, $season, $episode)
     {
         $this->api->episodeDownloaded($serie, $season, $episode);
+    }
+
+    /**
+     * @param string $serie
+     * @param string $season
+     * @param string $episode
+     * @return mixed|void
+     */
+    public function watchedEpisode($serie, $season, $episode)
+    {
+        $this->api->episodeWatched($serie, $season, $episode);
     }
 }

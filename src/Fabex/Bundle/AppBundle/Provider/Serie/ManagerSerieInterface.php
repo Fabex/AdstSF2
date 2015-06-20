@@ -32,4 +32,12 @@ interface ManagerSerieInterface
      * @return mixed
      */
     public function toggleDownloadedEpisode($serie, $season, $episode);
+
+    /**
+     * @param string $serie
+     * @param string $season
+     * @param string $episode
+     * @return mixed
+     */
+    public function watchedEpisode($serie, $season, $episode);
 }

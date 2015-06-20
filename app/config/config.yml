@@ -97,6 +97,15 @@ braincrafted_bootstrap:
         knp_menu: false
         assetic: false
 
+doctrine:
+    dbal:
+        driver:   pdo_sqlite
+        path: "%kernel.root_dir%/../adst"
+        charset: UTF8
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
+
 fabex_beta_serie_api:
     username: %betaserie_username%
     password: %betaserie_password%

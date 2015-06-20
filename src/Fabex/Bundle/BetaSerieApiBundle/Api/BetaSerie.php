@@ -108,7 +108,12 @@ class BetaSerie
     {
         $parameters = array('view' => 'show');
         $response = $this->sendRequest('members/episodes/all', $parameters);
-        $this->memberLastEpisode = $response['episodes'];
+
+        foreach ($response['episodes'] as $episode) {
+            $this->memberLastEpisode[] = $episode;
+        }
+
+        return $this->memberLastEpisode;
     }
 
     /**

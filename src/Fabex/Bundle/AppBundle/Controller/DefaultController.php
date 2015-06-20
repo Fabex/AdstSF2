@@ -4,6 +4,8 @@ namespace Fabex\Bundle\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class DefaultController
@@ -17,6 +19,16 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $episodes = $this->get('fabex_app.manager.serie')->getLastEpisodes();
+
+        return $this->render('FabexAppBundle:Default:index.html.twig', array('episodes' => $episodes));
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function getAllEpisodesAction()
+    {
+        $episodes = $this->get('fabex_app.manager.serie')->getAllLastEpisodes();
 
         return $this->render('FabexAppBundle:Default:index.html.twig', array('episodes' => $episodes));
     }
@@ -74,6 +86,29 @@ class DefaultController extends Controller
     public function toggleDownloadedEpisodeAction($serie, $season, $episode)
     {
         $this->get('fabex_app.manager.serie')->toggleDownloadedEpisode($serie, $season, $episode);
+
+        return new JsonResponse('ok');
+    }
+
+    /**
+     * @param string $serie
+     * @param string $season
+     * @param string $episode
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function watchedEpisodeAction($serie, $season, $episode)
+    {
+        $this->get('fabex_app.manager.serie')->watchedEpisode($serie, $season, $episode);
+
+        return new RedirectResponse($this->get('router')->generate('fabex_app_homepage'));
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function subtitleLink(Request $request)
+    {
 
         return new JsonResponse('ok');
     }
